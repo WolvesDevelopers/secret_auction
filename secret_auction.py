@@ -22,17 +22,21 @@ while access:
   add_new_participants(name,bid)
   level2 = True
   while level2:
-    ask = input("Are there any other bidders? Type 'yes' or 'no'.\n")
-    if (ask == "no"):
+    should_continue  = input("Are there any other bidders? Type 'yes' or 'no'.\n")
+    if (should_continue  == "no"):
       for participant in range(len(participants)):
-        if(participants[participant]["bid"] >= mayor):
+        
+        if(participants[participant]["bid"] > mayor):
           mayor = participants[participant]["bid"]
           winner = participants[participant]["name"]
+
       print(f"the winner is {winner} with a bid of ${mayor}")
       access = False
       level2 = False
-    elif(ask == "yes"):
+
+    elif(should_continue  == "yes"):
       os.system ("clear") 
       level2 = False
+    
     else:
       print("invalid option.")
